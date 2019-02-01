@@ -105,11 +105,12 @@ namespace base_local_planner {
        * @param y_vels A vector of the y velocities the controller will explore
        * @param angular_sim_granularity The distance between simulation points for angular velocity should be small enough that the robot doesn't hit things
        */
-      TrajectoryPlanner(WorldModel& world_model, 
-          const costmap_2d::Costmap2D& costmap, 
-          std::vector<geometry_msgs::Point> footprint_spec,
-          double acc_lim_x = 1.0, double acc_lim_y = 1.0, double acc_lim_theta = 1.0,
-          double sim_time = 1.0, double sim_granularity = 0.025, 
+      TrajectoryPlanner(WorldModel& world_model,    // 地图模型
+          const costmap_2d::Costmap2D& costmap,     // 代码地图
+          std::vector<geometry_msgs::Point> footprint_spec,   // 机器人人模型
+          double acc_lim_x = 1.0, double acc_lim_y = 1.0, double acc_lim_theta = 1.0,   // 加速度限制
+          double sim_time = 1.0, // 每秒的轨迹数
+          double sim_granularity = 0.025,    // 
           int vx_samples = 20, int vtheta_samples = 20,
           double pdist_scale = 0.6, double gdist_scale = 0.8, double occdist_scale = 0.2,
           double heading_lookahead = 0.325, double oscillation_reset_dist = 0.05, 
